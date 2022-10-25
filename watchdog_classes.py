@@ -1,14 +1,14 @@
 class YaDisk:
     def __init__(self, token):
         '''
-        Uploads a video file to Yandex Cloud and publishes it and then returns url of the shared video.
+        Uploads a video file to Yandex Disk and publishes it and then returns url of the shared video.
         '''
         self.headers = {'Authorization':f'OAuth {token}'}
         self.last_uploaded = None
 
     def upload(self, file_to_upload):
             '''
-                Uploads provided file to YandexCloud and sets file's path on cloud to self.last_uploaded
+                Uploads provided file to Yandex Disk and sets file's path on disk to self.last_uploaded
             '''
 
             url = 'https://cloud-api.yandex.net/v1/disk/resources/upload'
@@ -46,7 +46,7 @@ class YaDisk:
 
     def delete(self, yd_path_to_delete):
         '''
-        Gets a list of filenames to delete on yadisk. Returns list with names of deleted files.
+        Gets a list of filenames to delete on Yandex Disk. Returns list with names of deleted files.
         '''
         url = 'https://cloud-api.yandex.net/v1/disk/resources'
         deleted_files = []
