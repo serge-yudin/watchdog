@@ -77,8 +77,9 @@ class TelegramMessageSender:
         self.chat_id = chat_id
 
     def send_text(self, text_to_send, disable_notification=False):
-        r = requests.post(self.base_url + 'sendMessage', data={'chat_id': self.chat_id,
-                                                               'text': text_to_send, 'disable_notification': disable_notification})
+        r = requests.post(self.base_url + 'sendMessage',
+                          data={'chat_id': self.chat_id,
+                                'text': text_to_send, 'disable_notification': disable_notification})
         return r
 
     def send_video(self, video, caption=None):
@@ -97,9 +98,9 @@ class TelegramMessageSender:
                           data={'chat_id': self.chat_id, 'photo': photo})
         return r
 
-    def send_animation(self, gif=None):
+    def send_animation(self, gif=None, disable_notification=False):
         r = requests.post(self.base_url + 'sendAnimation',
-                          data={'chat_id': self.chat_id, 'animation': gif})
+                          data={'chat_id': self.chat_id, 'animation': gif, 'disable_notification': disable_notification})
         return r
 
     def place_video(self, mediafile=None, message_id=None):
